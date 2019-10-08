@@ -6,8 +6,8 @@ These files can be adapted to other IaaS/PaaS providers, or to other Meteor proj
 
 Ako uses:
 
-* PM2 as process manager
-* Nginx as reverse proxy
-* MongoDB as database
-* Redis for oplogging
-* ZFS for fs, snapshots and backups
+* **PM2** as process manager
+* **Nginx** as reverse proxy
+* **MongoDB** as database
+* **Redis** for oplogging
+* **ZFS** for fs, snapshots and backups
