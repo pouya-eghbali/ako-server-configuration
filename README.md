@@ -1,6 +1,6 @@
 # Ako Server Config
 
-This repository contains a set of files to build, install, run and manage Ako on FreeBSD on AWS.
+This repository contains a set of files to build, install, run and manage **Ako** on **FreeBSD** on **AWS**.
 
 These files can be adapted to other IaaS/PaaS providers, or to other Meteor projects who wish to use a similar configuration.
 
