@@ -1,0 +1,6 @@
+# Make daily snapshots of the database
+
+SHELL=/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+
+@daily /mongo/daily.sh
