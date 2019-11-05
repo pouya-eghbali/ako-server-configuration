@@ -11,3 +11,4 @@ Ako uses:
 * **MongoDB** as database
 * **Redis** for oplogging
 * **ZFS** for fs, snapshots and backups
+* **Grafana** for monitoring
