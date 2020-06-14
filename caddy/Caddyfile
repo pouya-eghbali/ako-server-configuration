@@ -1,0 +1,15 @@
+{{domain}}
+
+encode gzip zstd
+
+reverse_proxy localhost:3000 {
+  lb_policy ip_hash
+
+  health_path  /ok
+  health_interval 10s
+
+  header_up Host {host}
+  header_up X-Real-IP {remote_host}
+  header_up X-Forwarded-For {remote_host}
+  header_up X-Forwarded-Proto {scheme}
+}
