@@ -1,0 +1,61 @@
+#!/bin/sh
+
+# Ako Caddy Startup script
+# Made by: Pouya Eghbali
+#
+# Make the file executable with:
+# /usr/local/etc/rc.d/ako-caddy (chmod +x)
+#
+# add to /etc/rc.conf
+#
+# ako_caddy_enable="YES"
+# ako_caddy_user="freebsd"
+
+
+# PROVIDE: ako_caddy
+# REQUIRE: NETWORK mongod
+# KEYWORD: shutdown
+#
+ 
+. /etc/rc.subr
+ 
+name=ako_caddy
+rcvar=ako_caddy_enable
+
+caddy=/usr/local/bin/caddy
+ 
+load_rc_config $name
+ 
+start_cmd="ako_caddy_start"
+stop_cmd="ako_caddy_stop"
+restart_cmd="ako_caddy_restart"
+ 
+: ${ako_caddy_user="root"}
+: ${ako_caddy_enable="NO"}
+: ${ako_caddy_wd="/usr/home/user/app"}
+ 
+ako_caddy_start()
+{
+  CMD="cd ${ako_caddy_wd} && ${caddy} start"
+  su -l ${ako_caddy_user} -c "${CMD}"
+}
+ 
+ako_caddy_stop()
+{
+  CMD="cd ${ako_caddy_wd} && ${caddy} stop"
+  su -l ${ako_caddy_user} -c "${CMD}"
+}
+ 
+ako_caddy_restart()
+{
+  ako_caddy_stop
+  ako_caddy_start
+}
+ 
+ako_caddy_reload()
+{
+  CMD="cd ${ako_caddy_wd} && ${caddy} reload"
+  su -l ${pm2_user} -c "${CMD}"
+}
+ 
+run_rc_command "$1"
